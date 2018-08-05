@@ -11,13 +11,16 @@ import (
 	mgo "gopkg.in/mgo.v2"
 )
 
-const defaultAddr = ":80"
+const defaultAddr = ":443"
 
 func main() {
 	addr := os.Getenv("ADDR")
 	if len(addr) == 0 {
 		addr = defaultAddr
 	}
+
+	tlsKeypath := os.Getenv("TLSKEY")
+	tlsCertPath := os.Getenv("TLSCERT")
 
 	mongoAddr := os.Getenv("MONGO_ADDR")
 	//default to "localhost"
@@ -36,5 +39,5 @@ func main() {
 
 	mux.HandleFunc("/test", handlerContext.SubHandler)
 	fmt.Printf("server is listening at http://%s...\n", addr)
-	log.Fatal(http.ListenAndServe(addr, mux))
+	log.Fatal(http.ListenAndServeTLS(addr, tlsCertPath, tlsKeypath, mux))
 }

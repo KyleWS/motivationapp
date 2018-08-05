@@ -12,6 +12,7 @@ func (ctx *Context) SubHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
 		fmt.Println("GET received! No functionality here yet...")
+		fmt.Println(r.Header)
 	case "POST":
 		ns := &subscribe.NewSubscriber{}
 		if err := json.NewDecoder(r.Body).Decode(ns); err != nil {
