@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo Remember to source this
+
+export ADDR=:2555
+export TLSCERT=/home/kbox/Documents/kstuff/go/src/github.com/KyleWS/motivationapp/fullchain.pem
+export TLSKEY=/home/kbox/Documents/kstuff/go/src/github.com/KyleWS/motivationapp/privkey.pem
+

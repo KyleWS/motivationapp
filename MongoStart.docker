@@ -1,3 +1,0 @@
-docker pull mongo
-export ADDR=:2555
-docker run -d -p 27017:27017 mongo
