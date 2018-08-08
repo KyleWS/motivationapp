@@ -11,7 +11,7 @@ import (
 	mgo "gopkg.in/mgo.v2"
 )
 
-const defaultAddr = ":443"
+const defaultAddr = "localhost:443"
 
 func main() {
 	addr := os.Getenv("ADDR")
@@ -25,7 +25,7 @@ func main() {
 	mongoAddr := os.Getenv("MONGO_ADDR")
 	//default to "localhost"
 	if len(mongoAddr) == 0 {
-		mongoAddr = "localhost"
+		mongoAddr = "localhost:27017"
 	}
 	//dial the MongoDB server
 	mongoSess, err := mgo.Dial(mongoAddr)
@@ -34,6 +34,7 @@ func main() {
 	}
 	mongoStore := subscribe.NewMongoStore(mongoSess, "core", "subscriber")
 	handlerContext := handlers.NewHandlerContext(*mongoStore)
+
 
 	mux := http.NewServeMux()
 

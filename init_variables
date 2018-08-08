@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo remember to source this
-export ADDR=:443
-export TLSCERT=/etc/letsencrypt/live/motivationdashboard.app/fullchain.pem
-export TLSKEY=/etc/letsencrypt/live/motivationdashboard.app/privkey.pem

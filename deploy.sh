@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 ./build.sh
 ssh root@206.189.79.199 '
 docker rm -f mongo-server

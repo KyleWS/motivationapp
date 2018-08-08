@@ -2,7 +2,7 @@
 
 echo Remember to source this
 
-export ADDR=:2555
-export TLSCERT=/home/kbox/Documents/kstuff/go/src/github.com/KyleWS/motivationapp/fullchain.pem
-export TLSKEY=/home/kbox/Documents/kstuff/go/src/github.com/KyleWS/motivationapp/privkey.pem
+export ADDR=localhost:2555
+export TLSCERT=/home/kbox/Documents/kstuff/go/src/github.com/KyleWS/motivationapp/TLS/fullchain.pem
+export TLSKEY=/home/kbox/Documents/kstuff/go/src/github.com/KyleWS/motivationapp/TLS/privkey.pem
 
