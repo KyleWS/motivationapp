@@ -22,7 +22,7 @@ func main() {
 	tlsKeypath := os.Getenv("TLSKEY")
 	tlsCertPath := os.Getenv("TLSCERT")
 
-	mongoAddr := os.Getenv("MONGO_ADDR")
+	mongoAddr := os.Getenv("DATABASE_ADDRESS")
 	//default to "localhost"
 	if len(mongoAddr) == 0 {
 		mongoAddr = "localhost:27017"
@@ -35,10 +35,10 @@ func main() {
 	mongoStore := subscribe.NewMongoStore(mongoSess, "core", "subscriber")
 	handlerContext := handlers.NewHandlerContext(*mongoStore)
 
-
 	mux := http.NewServeMux()
+	mux.HandleFunc("/", handlerContext.SubHandler)
 
-	mux.HandleFunc("/test", handlerContext.SubHandler)
+	corsHandler := handlers.NewCORS(mux)
 	fmt.Printf("server is listening at http://%s...\n", addr)
-	log.Fatal(http.ListenAndServeTLS(addr, tlsCertPath, tlsKeypath, mux))
+	log.Fatal(http.ListenAndServeTLS(addr, tlsCertPath, tlsKeypath, corsHandler))
 }
