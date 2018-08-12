@@ -13,6 +13,6 @@ docker run -d \
 -e DATABASE_ADDRESS=mongo-server:27017 \
 --name motiapp-server \
 -v /etc/letsencrypt:/etc/letsencrypt:ro \
--e TLSCERT=/etc/letsencrypt/live/api.motivationdashboard.app/fullchain.pem \
--e TLSKEY=/etc/letsencrypt/live/api.motivationdashboard.app/privkey.pem \
+-e TLSCERT=/etc/letsencrypt/live/idea-dash.com/fullchain.pem \
+-e TLSKEY=/etc/letsencrypt/live/idea-dash.com/privkey.pem \
 kylews/motiapp-api'
