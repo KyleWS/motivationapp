@@ -13,6 +13,7 @@ func (ctx *Context) SubHandler(w http.ResponseWriter, r *http.Request) {
 	case "GET":
 		fmt.Println("GET received! No functionality here yet...")
 		fmt.Println(r.Header)
+		w.Write([]byte("kinex were way better than legos"))
 	case "POST":
 		ns := &subscribe.NewSubscriber{}
 		if err := json.NewDecoder(r.Body).Decode(ns); err != nil {

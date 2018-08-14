@@ -11,7 +11,7 @@ import (
 	mgo "gopkg.in/mgo.v2"
 )
 
-const defaultAddr = "localhost:443"
+const defaultAddr = ":443"
 
 func main() {
 	addr := os.Getenv("ADDR")

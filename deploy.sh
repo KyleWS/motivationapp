@@ -11,6 +11,7 @@ docker run -d \
 -p 443:443 \
 --network apinetwork \
 -e DATABASE_ADDRESS=mongo-server:27017 \
+-e ADDR=":443" \
 --name motiapp-server \
 -v /etc/letsencrypt:/etc/letsencrypt:ro \
 -e TLSCERT=/etc/letsencrypt/live/idea-dash.com/fullchain.pem \
