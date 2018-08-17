@@ -11,9 +11,7 @@ import (
 func (ctx *Context) SubHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
-		fmt.Println("GET received! No functionality here yet...")
-		fmt.Println(r.Header)
-		w.Write([]byte("kinex were way better than legos"))
+		w.Write([]byte("\n<html>\n<head>\n<title>Idea Dashboard</title>\n<meta property=\"og:image\" content=\"https://idea-dash.com/static/naveed.png\" /> <meta name=\"twitter:card\" content=\"image_of_thing\" ></head>\n<body>\n<br /><br /><br /><marquee><h1 style=\"color: red;\">Hello Naveed-san.</h1></marquee>\n</body>\n</html> "))
 	case "POST":
 		ns := &subscribe.NewSubscriber{}
 		if err := json.NewDecoder(r.Body).Decode(ns); err != nil {

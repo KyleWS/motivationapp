@@ -37,6 +37,9 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", handlerContext.SubHandler)
+	dir := http.Dir("/images")
+	fs := http.FileServer(dir)
+	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	corsHandler := handlers.NewCORS(mux)
 	fmt.Printf("server is listening at http://%s...\n", addr)
