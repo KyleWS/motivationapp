@@ -14,6 +14,6 @@ docker run -d \
 -e ADDR=":443" \
 --name motiapp-server \
 -v /etc/letsencrypt:/etc/letsencrypt:ro \
--e TLSCERT=/etc/letsencrypt/live/idea-dash.com/fullchain.pem \
--e TLSKEY=/etc/letsencrypt/live/idea-dash.com/privkey.pem \
+-e TLSCERT=/etc/letsencrypt/live/motivationdashboard.app/fullchain.pem \
+-e TLSKEY=/etc/letsencrypt/live/motivationdashboard.app/privkey.pem \
 kylews/motiapp-api'
